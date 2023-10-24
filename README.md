@@ -1,2 +1,3 @@
-# pkg
-My golang package
+# Golang Packages
+
+- SMTP EMail
