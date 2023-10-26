@@ -95,7 +95,7 @@ func (m *SMTPClient) sendMailSSL(to []string, data Data) error {
 
 	message := "From: " + m.From + "\n" +
 		"To: " + strings.Join(to, ",") + "\n" +
-		"Subject: " + data.Subject + "\n\n" +
+		"Subject: " + data.Subject + "\n" +
 		data.Body
 
 	// 发送邮件内容
