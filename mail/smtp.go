@@ -43,9 +43,9 @@ func (m *SMTPClient) SendMail(to []string, data Data) error {
 func (m *SMTPClient) sendMail(to []string, data Data) error {
 	auth := smtp.PlainAuth("", m.From, m.Password, m.Server)
 
-	message := "From: " + m.From + "\n" +
-		"To: " + strings.Join(to, ",") + "\n" +
-		"Subject: " + data.Subject + "\n" +
+	message := "From: " + m.From + "\r\n" +
+		"To: " + strings.Join(to, ",") + "\r\n" +
+		"Subject: " + data.Subject + "\r\n\r\n" +
 		data.Body
 
 	return smtp.SendMail(m.Server+":"+m.Port, auth, m.From, to, []byte(message))
@@ -93,9 +93,9 @@ func (m *SMTPClient) sendMailSSL(to []string, data Data) error {
 		}
 	}
 
-	message := "From: " + m.From + "\n" +
-		"To: " + strings.Join(to, ",") + "\n" +
-		"Subject: " + data.Subject + "\n" +
+	message := "From: " + m.From + "\r\n" +
+		"To: " + strings.Join(to, ",") + "\r\n" +
+		"Subject: " + data.Subject + "\r\n" +
 		data.Body
 
 	// 发送邮件内容
