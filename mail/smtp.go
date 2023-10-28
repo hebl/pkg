@@ -45,7 +45,7 @@ func (m *SMTPClient) sendMail(to []string, data Data) error {
 
 	message := "From: " + m.From + "\n" +
 		"To: " + strings.Join(to, ",") + "\n" +
-		"Subject: " + data.Subject + "\n\n" +
+		"Subject: " + data.Subject + "\n" +
 		data.Body
 
 	return smtp.SendMail(m.Server+":"+m.Port, auth, m.From, to, []byte(message))
